@@ -103,19 +103,33 @@ const TrafficLight = () => {
     }
 
     
-    
+    if (newColor === true){
+        return (
+            <div>
+                <button onClick={() => setColor("red")} className={`btn btn-danger ${!red && "opacity-25"}`}>rojo</button>
+                <button onClick={() => setColor("yellow")} className={`btn btn-warning ${!yellow && "opacity-25"}`}>amarillo</button>
+                <button onClick={() => setColor("green")} className={`btn btn-success ${!green && "opacity-25"}`}>verde</button>
+                <button onClick={() => setColor("purple")} className={`btn btn-success ${!purple && "opacity-25"}`}>purpura</button>
+                <button onClick={() => changeLight()} className="btn btn-success">Change Light</button>
+                <button onClick={() => addNewColor()} className="btn btn-success">Add Purple</button>
 
-    return (
-        <div>
-            <button onClick={() => setColor("red")} className={`btn btn-danger ${!red && "opacity-25"}`}>rojo</button>
-            <button onClick={() => setColor("yellow")} className={`btn btn-warning ${!yellow && "opacity-25"}`}>amarillo</button>
-            <button onClick={() => setColor("green")} className={`btn btn-success ${!green && "opacity-25"}`}>verde</button>
-            <button onClick={() => setColor("purple")} className={`btn btn-success ${!purple && "opacity-25"}`}>purpura</button>
-            <button onClick={() => changeLight()} className="btn btn-success">Change Light</button>
-            <button onClick={() => addNewColor()} className="btn btn-success">Add Purple</button>
+            </div>
+        )
+    }
 
-        </div>
+    if (newColor === false){
+        return (
+            <div>
+                <button onClick={() => setColor("red")} className={`btn btn-danger ${!red && "opacity-25"}`}>rojo</button>
+                <button onClick={() => setColor("yellow")} className={`btn btn-warning ${!yellow && "opacity-25"}`}>amarillo</button>
+                <button onClick={() => setColor("green")} className={`btn btn-success ${!green && "opacity-25"}`}>verde</button>
+                <button onClick={() => changeLight()} className="btn btn-success">Change Light</button>
+                <button onClick={() => addNewColor()} className="btn btn-success">Add Purple</button>
+
+            </div>
     )
+    }
+
 
 
         }
