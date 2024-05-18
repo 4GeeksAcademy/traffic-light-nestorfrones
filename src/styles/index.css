@@ -1,12 +1,13 @@
+.light {
+    width: 100px;
+    height: 100px;
+}
 
-/* 
+.new {
+    background-color: purple;
+    color: purple;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
+.new:hover{
+    background:purple;
+}

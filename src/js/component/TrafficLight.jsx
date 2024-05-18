@@ -8,21 +8,21 @@ const TrafficLight = () => {
     const [green, setGreen] = useState(true);
     const [yellow, setYellow] = useState(false);
     const [red, setRed] = useState(false);
-    
+
     const [purple, setPurple] = useState(false);
 
     const [newColor, setNewColor] = useState(false);
 
 
-    function addNewColor (){
+    function addNewColor() {
         if (newColor === false)
             setNewColor(true)
-            setColor("purple")
+        setColor("purple")
         if (newColor === true)
             setNewColor(false)
-            setColor("red")
+        setColor("red")
     }
- 
+
 
     function setColor(color) {
         if (newColor === true) {
@@ -52,7 +52,7 @@ const TrafficLight = () => {
             }
         }
 
-        if(newColor === false) {
+        if (newColor === false) {
             if (color === "green") {
                 setGreen(true)
                 setYellow(false)
@@ -69,68 +69,86 @@ const TrafficLight = () => {
                 setYellow(false)
             }
         }
-       
+
 
     }
 
 
     function changeLight() {
         if (newColor === true) {
-            if (green === true ){
+            if (green === true) {
                 setColor("yellow")
-            }    
-            if (yellow === true){
+            }
+            if (yellow === true) {
                 setColor("red")
             }
-            if (red === true){
+            if (red === true) {
                 setColor("purple")
             }
-            if (purple === true){
+            if (purple === true) {
                 setColor("green")
             }
         }
         if (newColor === false) {
-            if (green === true ){
+            if (green === true) {
                 setColor("yellow")
-            }    
-            if (yellow === true){
+            }
+            if (yellow === true) {
                 setColor("red")
             }
-            if (red === true){
+            if (red === true) {
                 setColor("green")
             }
         }
     }
 
-    
-    if (newColor === true){
-        return (
-            <div>
-                <button onClick={() => setColor("red")} className={`btn btn-danger ${!red && "opacity-25"}`}>rojo</button>
-                <button onClick={() => setColor("yellow")} className={`btn btn-warning ${!yellow && "opacity-25"}`}>amarillo</button>
-                <button onClick={() => setColor("green")} className={`btn btn-success ${!green && "opacity-25"}`}>verde</button>
-                <button onClick={() => setColor("purple")} className={`btn btn-success ${!purple && "opacity-25"}`}>purpura</button>
-                <button onClick={() => changeLight()} className="btn btn-success">Change Light</button>
-                <button onClick={() => addNewColor()} className="btn btn-success">Add Purple</button>
 
+    if (newColor === true) {
+        return (
+            <div className="row d-flex justify-content-center py-5">
+                <div className="d-flex flex-column align-items-center py-5">
+                <div className="bg-dark p-3">
+                        <button onClick={() => setColor("red")} className={`light btn btn-danger rounded-circle ${!red && "opacity-25"}`}></button>
+                    </div>
+                    <div className="bg-dark p-3">
+                        <button onClick={() => setColor("yellow")} className={`light btn btn-warning rounded-circle ${!yellow && "opacity-25"}`}></button>
+                    </div>
+                    <div className="bg-dark p-3">
+                        <button onClick={() => setColor("green")} className={`light btn btn-success rounded-circle ${!green && "opacity-25"}`}></button>
+                    </div>
+                    <div className="bg-dark p-3">
+                     <button onClick={() => setColor("purple")} className={`new light btn rounded-circle ${!purple && "opacity-25"}`}></button>
+                    </div>
+                </div>
+                <div className="col-12 py-5">
+                    <button onClick={() => changeLight()} className="mx-2 button btn btn-success">Change Light</button>
+                    <button onClick={() => addNewColor()} className="mx-2 button btn btn-success">Purple On/Off</button>
+
+                </div>
             </div>
         )
     }
 
-    if (newColor === false){
+    if (newColor === false) {
         return (
-            <div>
-                <button onClick={() => setColor("red")} className={`btn btn-danger ${!red && "opacity-25"}`}>rojo</button>
-                <button onClick={() => setColor("yellow")} className={`btn btn-warning ${!yellow && "opacity-25"}`}>amarillo</button>
-                <button onClick={() => setColor("green")} className={`btn btn-success ${!green && "opacity-25"}`}>verde</button>
-                <button onClick={() => changeLight()} className="btn btn-success">Change Light</button>
-                <button onClick={() => addNewColor()} className="btn btn-success">Add Purple</button>
-
+            <div className="row py-5">
+                <div className="col d-flex flex-column align-items-center py-5">
+                    <div className="bg-dark p-3">
+                        <button onClick={() => setColor("red")} className={`light btn btn-danger rounded-circle ${!red && "opacity-25"}`}></button>
+                    </div>
+                    <div className="bg-dark p-3">
+                        <button onClick={() => setColor("yellow")} className={`light btn btn-warning rounded-circle ${!yellow && "opacity-25"}`}></button>
+                    </div>
+                    <div className="bg-dark p-3">
+                        <button onClick={() => setColor("green")} className={`light btn btn-success rounded-circle ${!green && "opacity-25"}`}></button>
+                    </div>
+                </div>
+                <div className="col-12 py-5">
+                    <button onClick={() => changeLight()} className="mx-2 button btn btn-success">Change Light</button>
+                    <button onClick={() => addNewColor()} className="mx-2 button btn btn-success">Purple On/Off</button>
+                </div>
             </div>
-    )
+        )
     }
-
-
-
-        }
+}
 export default TrafficLight;

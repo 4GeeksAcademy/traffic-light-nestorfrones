@@ -7,7 +7,7 @@ import TrafficLight from "./TrafficLight";
 //create your first component
 const Home = () => {
 	return (
-		<div className="text-center">
+		<div className="contariner text-center">
 			<TrafficLight/>
 		</div>
 	);
